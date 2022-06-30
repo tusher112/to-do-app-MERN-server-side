@@ -9,23 +9,24 @@ app.use(express.json());
 //Port 
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.DB_CONNECT)
-.then(()=>console.log("db connected"))
+// mongoose.connect(process.env.DB_CONNECT)
+// .then(()=>console.log("db connected"))
+// .catch(()=> console.log("err"))
 
 //use cors
 app.use(cors());
 
 //import routes
-// const TodoItemRoute = require('./routes/todoItems');
+const TodoItemRoute = require('./routes/todoItems');
 
 
 //connect to mongodb ..
-// mongoose.connect(process.env.DB_CONNECT)
-// .then(()=> console.log("Database connected"))
-// .catch(err => console.log(err))
+mongoose.connect(process.env.DB_CONNECT)
+.then(()=> console.log("Database connected"))
+.catch(err => console.log(err))
 
 
-// app.use('/', TodoItemRoute);
+app.use('/', TodoItemRoute);
 
 
 
