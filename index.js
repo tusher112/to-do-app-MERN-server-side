@@ -9,6 +9,9 @@ app.use(express.json());
 //Port 
 const PORT = process.env.PORT || 5000;
 
+mongoose.connect(process.env.DB_CONNECT)
+.then(()=>console.log("db connected"))
+
 //use cors
 app.use(cors());
 
